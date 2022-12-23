@@ -1,18 +1,21 @@
 {% extends 'base.html.twig' %}
 
 {% block body %}
+
 <div class="container">
     <h1 class="mt-3 mb-4">Products</h1>
     <div class="row">
         {% for product in Product %}
             <div class="col-md-4">
                 <div class="card mb-4">
-                    <img src="{{ product.productImage }}" alt="" class="card-img-top">
+<<<<<<< main
+                    <img src= {{product.productImage}} alt="" class="card-img-top" width="250" height="300">
                     <div class="card-body">
-                        <h5 class="card-title">{{ product.productTitle }}</h5>
-                        <p class="card-text">{{ product.productDescription }}</p>
+                        <h5 class="card-title">{{product.productTitle }}</h5>
+                        <p class="card-text">{{product.productDescription}}</p>
                         <div class="d-flex justify-content-between align-item-center">
-                            <a href="/product/{{product.id}}" class="btn btn-dark">View details</a>
+                            <a href="#" class="btn btn-dark">View details</a>
+>>>>>>> main
                             <span class="h5 mt-auto">{{ product.productPrice }} $</span>
                         </div>
                     </div>
@@ -22,3 +25,4 @@
     </div>
 </div>
 {% endblock %}
+
