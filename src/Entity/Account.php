@@ -63,7 +63,8 @@ class Account implements UserInterface, PasswordAuthenticatedUserInterface
     {
         $roles = $this->roles;
         // guarantee every user at least has ROLE_USER
-        $roles[] = 'ROLE_USER';
+        $roles[] = 'USER';
+        $roles[] = 'ADMIN';
 
         return array_unique($roles);
     }

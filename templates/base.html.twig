@@ -12,43 +12,25 @@
     </head>
     <body>
         {% block header %}
-            <nav class="navbar navbar-dark bg-dark sticky-top">
+        <nav class="navbar navbar-dark bg-dark sticky-top">
             <a href="{{ path('app_home') }}" class="navbar-brand">
                 TDH Shop
             </a>
-            <div
-                                class="w-full flex-grow lg:flex lg:items-center lg:w-auto"
-                                :class="{ 'block shadow-3xl': isOpen, 'hidden': !isOpen }"
-                                @click.away="isOpen = false"
-                                x-show.transition="true">
-
-                            <ul class="pt-6 lg:pt-0 list-reset lg:flex justify-end flex-1 items-center">
-                                <li class="mr-3">
-                                    <a
-                                            class="inline-block text-gray-300 no-underline hover:text-gray-200 hover:text-underline py-2 px-4"
-                                            href="/home"
-                                            @click="isOpen = false">
-                                        Home
-                                    </a>
-                                </li>
-
-                                <li class="mr-3">
-                                    <a
-                                            class="inline-block text-gray-300 no-underline hover:text-gray-200 hover:text-underline py-2 px-4"
-                                            href="{{app_}}"
-                                            @click="isOpen = false">
-                                        Contact
-                                    </a>
-                                </li>
-                            </ul>
-                        </div>
-            </nav>
-        {% endblock %}
+            {% if app.user %}
+        <div class="mb-3">
+            You are logged in as {{ app.user.userIdentifier }}, <a href="{{ path('app_logout') }}">Logout</a>
+        </div>
+    {% endif %}
+            </li>
+            </ul>
+      </div>
+        </nav>
+{% endblock %}
 {% block body %}{% endblock %}
 {% block footer %} 
     <footer class="bg-gray-600 py-6 mt-20">
      <p class=" w-25 w-4/5 text-center pb-3 m-auto text-base text-gray-100 pt-6">
-                        Hello ! this web was designed by Tien,Duong,Hieu
+                        Hello ! this web was designed by Tien, Duong, Hieu
                         Contact: abcdxyz @gmail.com or 0123456789
     </p>
     </footer>

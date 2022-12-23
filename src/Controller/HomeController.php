@@ -16,4 +16,12 @@ class HomeController extends AbstractController
             'Product' => $productRepository ->findAll()
         ]);
     }
+    
+    public function searchBarAction()
+    {
+        $form = $this->createFormBuilder(null)
+        ->add('search',TextType::class)
+        ->getForm();
+        return $this->render('Controller:Home:SearchBar',['form' => $form->createView()]);
+    }
 }
