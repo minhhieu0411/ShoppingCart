@@ -15,14 +15,23 @@ class OrderItem
 
     #[ORM\ManyToOne]
     #[ORM\JoinColumn(nullable: false)]
-    private ?Product $product = null;
+    private ? Product $product = null;
 
     #[ORM\Column]
-    private ?int $quantity = null;
+       /**
+     * @ORM\Column(type="integer")
+     * @Assert\NotBlank()
+     * @Assert\GreaterThanOrEqual(1)
+     */
+    private $quantity;
 
     #[ORM\ManyToOne(inversedBy: 'item')]
     #[ORM\JoinColumn(nullable: false)]
     private ?Order $orderRef = null;
+
+    #[ORM\ManyToOne(inversedBy: 'items')]
+    #[ORM\JoinColumn(nullable: false)]
+    private ?Order $RefOrder = null;
 
     public function getId(): ?int
     {
@@ -72,4 +81,16 @@ class OrderItem
 {
     return $this->getProduct()->getProductPrice() * $this->getQuantity();
 }
+
+    public function getRefOrder(): ?Order
+    {
+        return $this->RefOrder;
+    }
+
+    public function setRefOrder(?Order $RefOrder): self
+    {
+        $this->RefOrder = $RefOrder;
+
+        return $this;
+    }
 }

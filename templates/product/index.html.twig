@@ -9,14 +9,14 @@
         <thead>
             <tr>
                 <th>Id</th>
-                <th>Product_title</th>
-                <th>Product_description</th>
-                <th>Product_keyword</th>
-                <th>Product_image</th>
-                <th>Product_price</th>
+                <th>Product Name</th>
+                <th>Product Description</th>
+                <th>keyword</th>
+                <th>Product Image</th>
+                <th>Product Price</th>
                 <th>Date</th>
                 <th>Status</th>
-                <th>actions</th>
+                <th>Actions</th>
             </tr>
         </thead>
         <tbody>
@@ -26,13 +26,13 @@
                 <td>{{ product.productTitle }}</td>
                 <td>{{ product.productDescription }}</td>
                 <td>{{ product.productKeyword }}</td>
-                <td>{{ product.productImage }}</td>
+                <td><img src= {{product.productImage}} alt="" class="card-img-center" width="50" height="50"></td>
                 <td>{{ product.productPrice }}</td>
-                <td>{{ product.date ? product.date|date('Y-m-d') : '' }}</td>
+                <td>{{ product.date ? product.date|date('d-m-Y') : '' }}</td>
                 <td>{{ product.status }}</td>
                 <td>
-                    <a href="{{ path('app_product_show', {'id': product.id}) }}">show</a>
-                    <a href="{{ path('app_product_edit', {'id': product.id}) }}">edit</a>
+                    <a href="{{ path('app_product_show', {'id': product.id}) }}">Detail</a>
+                    <a href="{{ path('app_product_edit', {'id': product.id}) }}">Update</a>
                 </td>
             </tr>
         {% else %}
@@ -43,5 +43,5 @@
         </tbody>
     </table>
 
-    <a href="{{ path('app_product_new') }}">Create new</a>
+    <button class ="height: 30px;width: 90px;"><a href="{{ path('app_product_new') }}">Create new</a></button>
 {% endblock %}

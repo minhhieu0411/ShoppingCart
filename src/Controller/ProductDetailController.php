@@ -6,7 +6,9 @@ use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
 use App\Entity\Product;
+use App\Form\AddToCartType;
 use App\Repository\ProductRepository;
+
 
 class ProductDetailController extends AbstractController
 {
